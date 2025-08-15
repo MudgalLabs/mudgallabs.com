@@ -1,103 +1,144 @@
+import { SquareArrowOutUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+export default function ProductsShowcase() {
+    const products = [
+        {
+            name: "Arthveda",
+            logo: "/arthveda.svg",
+            description:
+                "Arthveda is an open-source trading journal for the Indian markets that offers seamless broker imports, reveals powerful analytics, and helps you improve.",
+            website: "https://arthveda.app",
+            github: "https://github.com/MudgalLabs/arthveda",
+            discord: "https://discord.gg/RB89u64cWH",
+        },
+        {
+            name: "Bodhveda",
+            logo: "/bodhveda.svg",
+            description:
+                "Bodhveda is an open-source notification platform for sending direct or broadcast notifications at scale, while respecting each user’s preferences.",
+            website: "https://bodhveda.com",
+            github: "https://github.com/MudgalLabs/bodhveda",
+            discord: "https://discord.gg/Wg9ebJSAAG",
+        },
+    ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    return (
+        <div className="min-h-screen flex flex-col">
+            {/* Navbar */}
+            <nav className=" bg-background">
+                <div className="max-w-6xl mx-auto flex items-end gap-3 px-8 py-4">
+                    <Image
+                        src="/mudgal.svg"
+                        alt="Mudgal Labs Logo"
+                        width={36}
+                        height={36}
+                    />
+                </div>
+            </nav>
+
+            {/* Main Content */}
+            <main className="flex-grow">
+                <section className="px-8 py-16 max-w-6xl mx-auto">
+                    {/* Tagline */}
+                    <h2 className="text-2xl md:text-3xl font-medium text-center mb-12  text-text-muted">
+                        Building open source software that are worthwhile
+                    </h2>
+
+                    {/* Cards */}
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {products.map((product) => (
+                            <div
+                                key={product.name}
+                                className="bg-surface-1 border border-border-subtle rounded-md shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col"
+                            >
+                                {/* Logo + Name */}
+                                <div className="flex items-start gap-4 mb-4">
+                                    <Image
+                                        src={product.logo}
+                                        alt={`${product.name} logo`}
+                                        width={36}
+                                        height={36}
+                                    />
+                                    <h3 className="text-4xl font-medium">
+                                        {product.name}
+                                    </h3>
+                                </div>
+
+                                {/* Description */}
+                                <p className="text-text-muted flex-grow">
+                                    {product.description}
+                                </p>
+
+                                {/* Links */}
+                                <div className="flex gap-4 mt-6">
+                                    <Link
+                                        href={product.website}
+                                        target="_blank"
+                                        className="flex-x"
+                                    >
+                                        <SquareArrowOutUpRight className="w-4 h-4" />
+                                        Website
+                                    </Link>
+
+                                    <Link
+                                        href={product.github}
+                                        target="_blank"
+                                        className="flex-x"
+                                    >
+                                        <SquareArrowOutUpRight className="w-4 h-4" />
+                                        GitHub
+                                    </Link>
+
+                                    <Link
+                                        href={product.discord}
+                                        target="_blank"
+                                        className="flex-x"
+                                    >
+                                        <SquareArrowOutUpRight className="w-4 h-4" />
+                                        Discord
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                <section className="flex-center text-text-muted">
+                    <div>
+                        <p>Shikhar Sharma</p>
+                        <p>Founder & CEO, Mudgal Labs</p>
+
+                        <div className="flex-x gap-x-4 mt-2">
+                            <Link
+                                href="https://www.linkedin.com/in/ceoshikhar"
+                                target="_blank"
+                                className="flex-x"
+                            >
+                                <SquareArrowOutUpRight className="w-4 h-4" />
+                                LinkedIn
+                            </Link>
+
+                            <Link
+                                href="https://github.com/ceoshikhar"
+                                target="_blank"
+                                className="flex-x"
+                            >
+                                <SquareArrowOutUpRight className="w-4 h-4" />
+                                GitHub
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            {/* Footer */}
+            <footer className="bg-background py-8">
+                <div className="max-w-6xl mx-auto px-8 py-6 text-center text-sm text-text-muted">
+                    © 2025 Mudgal Labs
+                </div>
+            </footer>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
