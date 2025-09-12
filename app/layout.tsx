@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: "Mudgal Labs",
-    description: "Building open source software that are worthwhile.",
+    description: "Building open source software that is worthwhile.",
 };
 
 export default function RootLayout({

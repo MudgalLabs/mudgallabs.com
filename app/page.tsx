@@ -43,7 +43,7 @@ export default function ProductsShowcase() {
                 <section className="px-8 py-16 max-w-6xl mx-auto">
                     {/* Tagline */}
                     <h2 className="text-2xl md:text-3xl font-medium text-center mb-12  text-text-muted">
-                        Building open source software that are worthwhile
+                        Building open source software that is worthwhile
                     </h2>
 
                     {/* Cards */}
