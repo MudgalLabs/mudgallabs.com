@@ -26,25 +26,23 @@ export default function ProductsShowcase() {
 
     return (
         <div className="min-h-screen flex flex-col">
-            {/* Navbar */}
-            <nav className=" bg-background">
-                <div className="max-w-6xl mx-auto flex items-end gap-3 px-8 py-4">
-                    <Image
-                        src="/mudgal.svg"
-                        alt="Mudgal Labs Logo"
-                        width={36}
-                        height={36}
-                    />
-                </div>
-            </nav>
-
             {/* Main Content */}
             <main className="flex-grow">
                 <section className="px-8 py-16 max-w-6xl mx-auto">
+                    <div className="flex items-end justify-center gap-4 mb-8">
+                        <Image
+                            src="/mudgal.svg"
+                            alt="Mudgal Labs Logo"
+                            width={32}
+                            height={32}
+                        />
+                        <h1 className="text-xl">Mudgal Labs</h1>
+                    </div>
+
                     {/* Tagline */}
-                    <h2 className="text-2xl md:text-3xl font-medium text-center mb-12  text-text-muted">
+                    <p className="text-2xl md:text-3xl font-medium text-center mb-12  text-text-muted">
                         Building open source software that is worthwhile
-                    </h2>
+                    </p>
 
                     {/* Cards */}
                     <div className="grid md:grid-cols-2 gap-8">
@@ -134,9 +132,27 @@ export default function ProductsShowcase() {
             </main>
 
             {/* Footer */}
-            <footer className="bg-background py-8">
-                <div className="max-w-6xl mx-auto px-8 py-6 text-center text-sm text-text-muted">
-                    © 2025 Mudgal Labs
+            <footer className="bg-background p-8 mx-auto max-w-6xl space-y-2">
+                <p className="text-sm text-text-muted">© 2025 Mudgal Labs</p>
+
+                <div className="flex gap-x-4">
+                    <Link
+                        href="https://github.com/MudgalLabs"
+                        target="_blank"
+                        className="flex-x"
+                    >
+                        <SquareArrowOutUpRight className="w-4 h-4" />
+                        GitHub
+                    </Link>
+
+                    <Link
+                        href="https://www.linkedin.com/company/mudgallabs"
+                        target="_blank"
+                        className="flex-x"
+                    >
+                        <SquareArrowOutUpRight className="w-4 h-4" />
+                        LinkedIn
+                    </Link>
                 </div>
             </footer>
         </div>
