@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Mudgal Labs",
-    description: "Building open source software that is worthwhile.",
+    title: "Mudgal Labs: Building software that is worthwhile",
+    description:
+        "Mudgal Labs is dedicated to creating software that positively impacts lives.",
 };
 
 export default function RootLayout({

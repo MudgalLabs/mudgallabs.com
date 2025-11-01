@@ -8,9 +8,8 @@ export default function ProductsShowcase() {
             name: "Arthveda",
             logo: "/arthveda.svg",
             description:
-                "Arthveda is an open-source trading journal for the Indian markets that offers seamless broker imports, reveals powerful analytics, and helps you improve.",
+                "Arthveda is an India-first trading journal that offers seamless broker integrations, reveals powerful analytics, and helps you improve.",
             website: "https://arthveda.app",
-            github: "https://github.com/MudgalLabs/arthveda",
             discord: "https://discord.gg/RB89u64cWH",
         },
         {
@@ -41,7 +40,7 @@ export default function ProductsShowcase() {
 
                     {/* Tagline */}
                     <p className="text-2xl md:text-3xl font-medium text-center mb-12  text-text-muted">
-                        Building open source software that is worthwhile
+                        Building software that is worthwhile
                     </p>
 
                     {/* Cards */}
@@ -80,14 +79,16 @@ export default function ProductsShowcase() {
                                         Website
                                     </Link>
 
-                                    <Link
-                                        href={product.github}
-                                        target="_blank"
-                                        className="flex-x"
-                                    >
-                                        <SquareArrowOutUpRight className="w-4 h-4" />
-                                        GitHub
-                                    </Link>
+                                    {product.github && (
+                                        <Link
+                                            href={product.github}
+                                            target="_blank"
+                                            className="flex-x"
+                                        >
+                                            <SquareArrowOutUpRight className="w-4 h-4" />
+                                            GitHub
+                                        </Link>
+                                    )}
 
                                     <Link
                                         href={product.discord}
@@ -106,7 +107,7 @@ export default function ProductsShowcase() {
                 <section className="flex-center text-text-muted">
                     <div>
                         <p>Shikhar Sharma</p>
-                        <p>Founder & CEO, Mudgal Labs</p>
+                        <p>Founder</p>
 
                         <div className="flex-x gap-x-4 mt-2">
                             <Link
