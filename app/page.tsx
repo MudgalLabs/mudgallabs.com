@@ -10,6 +10,7 @@ export default function ProductsShowcase() {
             description:
                 "Arthveda is an India-first trading journal that offers seamless broker integrations, reveals powerful analytics, and helps you improve.",
             website: "https://arthveda.app",
+            github: "https://github.com/MudgalLabs/arthveda",
             discord: "https://discord.gg/RB89u64cWH",
         },
         {
