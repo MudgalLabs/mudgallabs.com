@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Grahak logo</title>
+  <desc id="desc">A white lowercase g with a hollow chat bubble counterform on a primary-blue rounded square.</desc>
+  <defs>
+    <style>
+      .background { fill: oklch(0.6191 0.0996 255.3362); }
+      .brand { fill: #ffffff; }
+    </style>
+  </defs>
+  <rect class="background" x="32" y="32" width="448" height="448" rx="24"/>
+  <g transform="translate(46 46) scale(0.82)">
+    <path class="brand" d="M113 329h52c8 43 45 64 91 64s83-21 91-64h52c-8 74-67 116-143 116s-135-42-143-116Z"/>
+    <path class="brand" fill-rule="evenodd" d="M256 58a132 132 0 1 0 0 264 132 132 0 0 0 0-264Zm0 53c-48 0-86 34-86 77 0 44 38 78 86 78 10 0 20-1 29-4l45 24-5-47c12-14 18-32 18-51 0-43-39-77-87-77Z"/>
+  </g>
+</svg>

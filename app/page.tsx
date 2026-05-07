@@ -1,29 +1,49 @@
 import { SquareArrowOutUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { ThemeToggle } from "./theme-toggle";
+
+interface Product {
+    name: string;
+    logo: string;
+    description: string;
+    website: string;
+    github?: string;
+    discord?: string;
+}
+
+const products: Product[] = [
+    {
+        name: "Arthveda",
+        logo: "/arthveda.svg",
+        description:
+            "Arthveda is a trading journal that shows why you're losing money and how to fix it. Works with Zerodha, Groww, Angel One and more.",
+        website: "https://arthveda.app",
+    },
+    {
+        name: "Grahak",
+        logo: "/grahak.svg",
+        description:
+            "Grahak lets your customers give feedback without leaving your product while helping teams stay on top of them.",
+        website: "https://grahak.dev",
+    },
+    {
+        name: "Resurface",
+        logo: "/resurface.svg",
+        description:
+            "Resurface helps you capture, organise, and follow up on DMs and comments in one place.",
+        website: "https://resurface.to",
+    },
+    {
+        name: "Bodhveda",
+        logo: "/bodhveda.svg",
+        description:
+            "Bodhveda is a notification platform for sending direct or broadcast notifications at scale, while respecting each user’s preferences.",
+        website: "https://bodhveda.com",
+    },
+];
 
 export default function ProductsShowcase() {
-    const products = [
-        {
-            name: "Arthveda",
-            logo: "/arthveda.svg",
-            description:
-                "Arthveda is an India-first trading journal that offers seamless broker integrations, reveals powerful analytics, and helps you improve.",
-            website: "https://arthveda.app",
-            github: "https://github.com/MudgalLabs/arthveda",
-            discord: "https://discord.gg/RB89u64cWH",
-        },
-        {
-            name: "Bodhveda",
-            logo: "/bodhveda.svg",
-            description:
-                "Bodhveda is an open-source notification platform for sending direct or broadcast notifications at scale, while respecting each user’s preferences.",
-            website: "https://bodhveda.com",
-            github: "https://github.com/MudgalLabs/bodhveda",
-            discord: "https://discord.gg/Wg9ebJSAAG",
-        },
-    ];
-
     return (
         <div className="min-h-screen flex flex-col">
             {/* Main Content */}
@@ -40,7 +60,7 @@ export default function ProductsShowcase() {
                     </div>
 
                     {/* Tagline */}
-                    <p className="text-2xl md:text-3xl font-medium text-center mb-12  text-text-muted">
+                    <p className="text-2xl md:text-3xl font-medium text-center mb-12 text-muted-foreground">
                         Building software that is worthwhile
                     </p>
 
@@ -49,7 +69,7 @@ export default function ProductsShowcase() {
                         {products.map((product) => (
                             <div
                                 key={product.name}
-                                className="bg-surface-1 border border-border-subtle rounded-md shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col"
+                                className="bg-card border border-border rounded-md shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col"
                             >
                                 {/* Logo + Name */}
                                 <div className="flex items-start gap-4 mb-4">
@@ -59,102 +79,79 @@ export default function ProductsShowcase() {
                                         width={36}
                                         height={36}
                                     />
-                                    <h3 className="text-4xl font-medium">
-                                        {product.name}
-                                    </h3>
-                                </div>
-
-                                {/* Description */}
-                                <p className="text-text-muted flex-grow">
-                                    {product.description}
-                                </p>
-
-                                {/* Links */}
-                                <div className="flex gap-4 mt-6">
                                     <Link
                                         href={product.website}
                                         target="_blank"
-                                        className="flex-x"
+                                        className="group flex items-start gap-2 text-foreground hover:no-underline"
+                                        aria-label={`Visit ${product.name} website`}
                                     >
-                                        <SquareArrowOutUpRight className="w-4 h-4" />
-                                        Website
-                                    </Link>
-
-                                    {product.github && (
-                                        <Link
-                                            href={product.github}
-                                            target="_blank"
-                                            className="flex-x"
-                                        >
-                                            <SquareArrowOutUpRight className="w-4 h-4" />
-                                            GitHub
-                                        </Link>
-                                    )}
-
-                                    <Link
-                                        href={product.discord}
-                                        target="_blank"
-                                        className="flex-x"
-                                    >
-                                        <SquareArrowOutUpRight className="w-4 h-4" />
-                                        Discord
+                                        <h3 className="text-4xl font-medium transition-colors group-hover:text-primary">
+                                            {product.name}
+                                        </h3>
+                                        <SquareArrowOutUpRight className="mt-1 h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
                                     </Link>
                                 </div>
+
+                                {/* Description */}
+                                <p className="text-muted-foreground flex-grow">
+                                    {product.description}
+                                </p>
+
+                                {(product.github || product.discord) && (
+                                    <div className="flex gap-4 mt-6">
+                                        {product.github && (
+                                            <Link
+                                                href={product.github}
+                                                target="_blank"
+                                                className="flex-x"
+                                            >
+                                                <SquareArrowOutUpRight className="w-4 h-4" />
+                                                GitHub
+                                            </Link>
+                                        )}
+
+                                        {product.discord && (
+                                            <Link
+                                                href={product.discord}
+                                                target="_blank"
+                                                className="flex-x"
+                                            >
+                                                <SquareArrowOutUpRight className="w-4 h-4" />
+                                                Discord
+                                            </Link>
+                                        )}
+                                    </div>
+                                )}
                             </div>
                         ))}
-                    </div>
-                </section>
-
-                <section className="flex-center text-text-muted">
-                    <div>
-                        <p>Shikhar Sharma</p>
-                        <p>Founder</p>
-
-                        <div className="flex-x gap-x-4 mt-2">
-                            <Link
-                                href="https://www.linkedin.com/in/ceoshikhar"
-                                target="_blank"
-                                className="flex-x"
-                            >
-                                <SquareArrowOutUpRight className="w-4 h-4" />
-                                LinkedIn
-                            </Link>
-
-                            <Link
-                                href="https://github.com/ceoshikhar"
-                                target="_blank"
-                                className="flex-x"
-                            >
-                                <SquareArrowOutUpRight className="w-4 h-4" />
-                                GitHub
-                            </Link>
-                        </div>
                     </div>
                 </section>
             </main>
 
             {/* Footer */}
-            <footer className="bg-background p-8 mx-auto max-w-6xl space-y-2">
-                <p className="text-sm text-text-muted">© 2025 Mudgal Labs</p>
+            <footer className="bg-background border-t border-border p-8 w-full">
+                <div className="mx-auto flex max-w-6xl flex-col gap-6 text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-sm">Mudgal Labs · © 2025</p>
 
-                <div className="flex gap-x-4">
-                    <Link
-                        href="https://github.com/MudgalLabs"
-                        target="_blank"
-                        className="flex-x"
-                    >
-                        <SquareArrowOutUpRight className="w-4 h-4" />
-                        GitHub
-                    </Link>
+                    <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+                        <Link
+                            href="https://github.com/MudgalLabs"
+                            target="_blank"
+                            className="flex-x"
+                        >
+                            GitHub
+                        </Link>
 
-                    <Link
-                        href="https://www.linkedin.com/company/mudgallabs"
-                        target="_blank"
-                        className="flex-x"
-                    >
-                        <SquareArrowOutUpRight className="w-4 h-4" />
-                        LinkedIn
-                    </Link>
+                        <Link
+                            href="https://www.linkedin.com/company/mudgallabs"
+                            target="_blank"
+                            className="flex-x"
+                        >
+                            LinkedIn
+                        </Link>
+
+                        <ThemeToggle />
+                    </div>
                 </div>
             </footer>
         </div>

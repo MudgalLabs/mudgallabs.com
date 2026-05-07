@@ -1,186 +1,191 @@
 @import "tailwindcss";
 
-/* Theme*/
+@custom-variant dark (&:is(.dark *));
 
-@theme {
-    --color-azure-50: hsl(213, 52%, 97%);
-    --color-azure-100: hsl(213, 62%, 93%);
-    --color-azure-200: hsl(213, 66%, 87%);
-    --color-azure-300: hsl(213, 69%, 79%);
-    --color-azure-400: hsl(213, 67%, 69%);
-    --color-azure-500: hsl(213, 59%, 59%);
-    --color-azure-600: hsl(220, 54%, 54%);
-    --color-azure-700: hsl(226, 51%, 45%);
-    --color-azure-800: hsl(229, 49%, 40%);
-    --color-azure-900: hsl(229, 44%, 33%);
-    --color-azure-950: hsl(230, 39%, 21%);
-
-    /* === Base Backgrounds & Foregrounds === */
-    /* Very dark background */
-    --color-background: hsl(222, 83%, 2%);
-    /* Less dark background */
-    --color-background: hsl(220, 39%, 5%);
-    --color-foreground: hsl(210, 40%, 98%);
-    --color-muted: hsl(220, 60%, 8%);
-    --color-muted-foreground: hsl(213, 41%, 70%);
-    --color-border: hsl(220, 44%, 23%);
-    --color-border-muted: hsl(0, 0%, 100%);
-
-    /* === Brand / Accent System === */
-    --color-primary: hsl(226, 51%, 45%);
-    --color-primary-hover: hsl(226, 51%, 49%);
-    --color-primary-foreground: hsl(210, 40%, 98%);
-    --color-secondary: hsl(218, 60%, 11%);
-    --color-secondary-hover: hsl(218, 60%, 15%);
-    --color-secondary-foreground: hsl(225, 56%, 88%);
-    /* --color-link: hsl(221, 82%, 67%); */
-    --color-link: var(--color-azure-500);
-
-    /* === State Variants === */
-    --color-success-bg: hsl(150, 90%, 6%);
-    --color-success-border: hsl(150, 85%, 16%);
-    --color-success-foreground: hsl(145, 100%, 70%);
-
-    --color-error-bg: hsl(357, 64%, 10%);
-    --color-error-border: hsl(357, 62%, 21%);
-    --color-error-foreground: hsl(356, 100%, 80%);
-
-    --color-warning-bg: hsl(50, 100%, 8%);
-    --color-warning-border: hsl(50, 100%, 15%);
-    --color-warning-foreground: hsl(50, 100%, 50%);
-
-    /* === Buttons === */
-    --color-btn-bg-primary: var(--color-primary);
-    --color-btn-text-primary: var(--color-primary-foreground);
-
-    --color-btn-bg-secondary: var(--color-secondary);
-    --color-btn-hover-secondary: hsl(218, 60%, 17%);
-    --color-btn-border-secondary: var(--color-border);
-    --color-btn-text-secondary: var(--color-secondary-foreground);
-    --color-btn-text-secondary: var(--color-foreground);
-
-    /* === Inputs === */
-    --color-input-bg: hsl(220, 60%, 6%);
-    --color-input-bg: hsl(225, 40%, 16%);
-    --color-input-border: var(--color-border);
-    --color-input-placeholder: #62809d;
-    --color-input-focus-ring: var(--color-primary);
-
-    /* === Surfaces (cards, panels) === */
-    --color-surface-bg: var(--color-muted);
-    --color-surface-border: var(--color-border);
-    --color-surface-foreground: var(--color-muted-foreground);
-
-    --color-overlay-bg: hsl(220, 60%, 12%);
-    --color-overlay-bg-hover: hsl(220, 60%, 18%);
-    --color-overlay-border: hsl(220, 44%, 27%);
-
-    /* === Charts & Visualizations === */
-    --color-chart-primary: var(--color-primary);
-    --color-chart-muted: var(--color-muted-foreground);
-
-    --color-gross-pnl: #8b5cf6;
-    --color-net-pnl: var(--color-primary);
-    --color-charges: #f43f5e;
-
-    /* === Misc === */
-    --color-logo: var(--color-azure-500);
-    --color-logo: #0095ff;
-
-    /* === Surface Hierarchy === */
-    /* Background of the entire app. Left sidebar uses this. */
-    --color-surface-0: var(--color-background);
-    /* Main content area. */
-    --color-surface-1: hsl(220, 60%, 5%);
-    /* Cards, right sidebar (if any), textarea, modals, etc.  */
-    --color-surface-2: hsl(220, 60%, 8%);
-    /* Popover, dropdown. */
-    --color-surface-3: hsl(220, 60%, 12%);
-
-    /* Cards, panels, list items */
-    --color-surface-4: hsl(220, 60%, 12%);
-    /* Input fields */
-    --color-surface-5: hsl(220, 60%, 14%);
-    /* Modals, Popovers, Active menu */
-    --color-surface-6: hsl(220, 60%, 16%);
-
-    --color-surface-0: hsl(220, 39%, 5%);
-    --color-surface-1: hsl(223, 48%, 8%);
-    --color-surface-2: hsl(224, 44%, 12%);
-    --color-surface-3: hsl(225, 40%, 16%);
-    --color-surface-4: hsl(226, 36%, 20%);
-
-    /* surface-3 */
-    --color-secondary: hsl(225, 40%, 16%);
-    --color-secondary-hover: hsl(225, 40%, 24%);
-
-    --color-secondary: hsl(222, 42%, 20%);
-    --color-secondary-hover: hsl(222, 42%, 24%);
-
-    /* === Hover & Focus Variants === */
-    --color-hover-soft: hsl(220, 60%, 18%); /* Button hover, card hover */
-    --color-hover-subtle: hsl(220, 60%, 12%); /* Row hover */
-
-    --color-focus-ring: hsl(221, 100%, 40%); /* Ring for inputs, buttons */
-
-    /* === Border & Divider === */
-    /* Feels subtly navy, still soft */
-    --color-border-soft: hsl(220, 30%, 22%);
-    /* Fainter, more navy than gray */
-    --color-border-subtle: hsl(220, 20%, 18%);
-
-    --color-border-soft: hsl(220, 35%, 28%);
-    --color-border-subtle: hsl(220, 35%, 24%);
-    --color-border-hover: hsl(220, 35%, 40%);
-    --color-border-accent: var(--color-azure-500);
-
-    /* === Text Layers === */
-    --color-text-primary: hsl(210, 40%, 98%);
-    --color-text-muted: hsl(213, 30%, 70%);
-    --color-text-subtle: hsl(215, 15%, 50%);
-    --color-text-placeholder: hsl(215, 13%, 45%);
-    --color-text-destructive: lch(80 80 29);
-    --color-text-success: hsl(158, 64%, 50%);
-
-    /* === Accent Layers (from your Azure palette) === */
-    /* For brand accents */
-    --color-accent: var(--color-azure-500);
-    /* On darker surfaces */
-    --color-accent-muted: var(--color-surface-5);
-
-    --font-heading: var(--font-geist-mono);
-    --font-content: var(--font-geist-mono);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
+:root {
+    --background: oklch(0.9649 0.0125 255.5051);
+    --foreground: oklch(0.2786 0.0211 257.2774);
+    --card: oklch(0.984 0.0062 255.4743);
+    --card-foreground: oklch(0.2786 0.0211 257.2774);
+    --popover: oklch(0.984 0.0062 255.4743);
+    --popover-foreground: oklch(0.2786 0.0211 257.2774);
+    --primary: oklch(0.6191 0.0996 255.3362);
+    --primary-foreground: oklch(0.9791 0 0);
+    --secondary: oklch(0.931 0.0132 251.5632);
+    --secondary-foreground: oklch(0.3186 0.0204 257.2707);
+    --muted: oklch(0.9406 0.0114 252.0905);
+    --muted-foreground: oklch(0.5503 0.0092 253.9021);
+    --accent: oklch(0.9195 0.0155 257.1989);
+    --accent-foreground: oklch(0.2988 0.0207 257.2741);
+    --destructive: oklch(0.6291 0.2 25.0027);
+    --destructive-foreground: oklch(0.9791 0 0);
+    --border: oklch(0.8592 0.0123 259.8236);
+    --input: oklch(0.8395 0.0118 252.104);
+    --ring: oklch(0.6191 0.0996 255.3362);
+    --chart-1: oklch(0.6191 0.0996 255.3362);
+    --chart-2: oklch(0.5505 0.1793 259.7746);
+    --chart-3: oklch(0.6494 0.1351 78.4953);
+    --chart-4: oklch(0.5993 0.1808 299.8739);
+    --chart-5: oklch(0.6996 0.1198 39.6875);
+    --sidebar: oklch(0.9744 0.0108 256.6945);
+    --sidebar-foreground: oklch(0.2786 0.0211 257.2774);
+    --sidebar-primary: oklch(0.6191 0.0996 255.3362);
+    --sidebar-primary-foreground: oklch(0.9791 0 0);
+    --sidebar-accent: oklch(0.931 0.0132 251.5632);
+    --sidebar-accent-foreground: oklch(0.3186 0.0204 257.2707);
+    --sidebar-border: oklch(0.8592 0.0123 259.8236);
+    --sidebar-ring: oklch(0.6191 0.0996 255.3362);
+    --font-sans: var(--font-geist-sans), Geist, ui-sans-serif, sans-serif, system-ui;
+    --font-serif: "Inter", sans-serif;
+    --font-mono: var(--font-geist-mono), Geist Mono, ui-monospace, monospace;
+    --radius: 0rem;
+    --shadow-x: 0px;
+    --shadow-y: 1px;
+    --shadow-blur: 3px;
+    --shadow-spread: 0px;
+    --shadow-opacity: 0.1;
+    --shadow-color: #000000;
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --tracking-normal: 0em;
+    --spacing: 0.25rem;
 }
 
-/* Global */
-
-* {
-    box-sizing: border-box;
-
-    /* @apply focus-visible:ring-primary focus-visible:border-transparent focus-visible:ring-[2px] focus-visible:outline-none; */
+.dark {
+    --background: oklch(0.1801 0.0191 255.7673);
+    --foreground: oklch(0.9501 0.0097 252.8122);
+    --card: oklch(0.2015 0.0193 252.1223);
+    --card-foreground: oklch(0.9501 0.0097 252.8122);
+    --popover: oklch(0.2015 0.0193 252.1223);
+    --popover-foreground: oklch(0.9501 0.0097 252.8122);
+    --primary: oklch(0.6191 0.0996 255.3362);
+    --primary-foreground: oklch(0.9791 0 0);
+    --secondary: oklch(0.2539 0.0216 257.2811);
+    --secondary-foreground: oklch(0.9239 0.0104 261.7883);
+    --muted: oklch(0.2369 0.0178 255.6976);
+    --muted-foreground: oklch(0.6739 0.0094 247.9662);
+    --accent: oklch(0.2867 0.0209 257.2761);
+    --accent-foreground: oklch(0.9319 0.0097 252.8139);
+    --destructive: oklch(0.6291 0.2 25.0027);
+    --destructive-foreground: oklch(0.9791 0 0);
+    --border: oklch(0.2831 0.0108 254.0126);
+    --input: oklch(0.2916 0.0123 258.3717);
+    --ring: oklch(0.6505 0.0995 254.354);
+    --chart-1: oklch(0.8088 0.0991 251.7533);
+    --chart-2: oklch(0.6207 0.1894 259.9358);
+    --chart-3: oklch(0.5495 0.2202 263.0917);
+    --chart-4: oklch(0.4893 0.2202 264.0405);
+    --chart-5: oklch(0.421 0.1792 266.0094);
+    --sidebar: oklch(0.1897 0.0206 258.3267);
+    --sidebar-foreground: oklch(0.9501 0.0097 252.8122);
+    --sidebar-primary: oklch(0.6191 0.0996 255.3362);
+    --sidebar-primary-foreground: oklch(0.9791 0 0);
+    --sidebar-accent: oklch(0.2539 0.0216 257.2811);
+    --sidebar-accent-foreground: oklch(0.9319 0.0097 252.8139);
+    --sidebar-border: oklch(0.2831 0.0108 254.0126);
+    --sidebar-ring: oklch(0.6505 0.0995 254.354);
+    --font-sans: var(--font-geist-sans), Geist, ui-sans-serif, sans-serif, system-ui;
+    --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-mono: var(--font-geist-mono), Geist Mono, ui-monospace, monospace;
+    --radius: 0rem;
+    --shadow-x: 0px;
+    --shadow-y: 1px;
+    --shadow-blur: 3px;
+    --shadow-spread: 0px;
+    --shadow-opacity: 0.1;
+    --shadow-color: #000000;
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl:
+        0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
 }
 
-body {
-    background: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-mono);
-    font-size: 14px;
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
+    --font-serif: var(--font-serif);
+
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+
+    --shadow-2xs: var(--shadow-2xs);
+    --shadow-xs: var(--shadow-xs);
+    --shadow-sm: var(--shadow-sm);
+    --shadow: var(--shadow);
+    --shadow-md: var(--shadow-md);
+    --shadow-lg: var(--shadow-lg);
+    --shadow-xl: var(--shadow-xl);
+    --shadow-2xl: var(--shadow-2xl);
 }
 
-a {
-    @apply text-link font-content text-sm font-medium underline-offset-4 hover:underline;
+@layer base {
+    * {
+        box-sizing: border-box;
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground font-sans;
+        font-size: 14px;
+    }
 }
 
-input,
-textarea,
-[contenteditable] {
-    user-select: text;
-}
-
-/* Change Autocomplete styles in Chrome*/
-
+/* Change Autocomplete styles in Chrome */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -190,10 +195,10 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    -webkit-text-fill-color: var(--color-foreground);
-    -webkit-box-shadow: 0 0 0px 1000px var(--color-accent-muted) inset;
-    caret-color: var(--color-foreground);
-    border-color: var(--color-accent-muted);
+    -webkit-text-fill-color: var(--foreground);
+    -webkit-box-shadow: 0 0 0px 1000px var(--accent) inset;
+    caret-color: var(--foreground);
+    border-color: var(--accent);
     transition: background-color 1000s ease-in-out 0s;
 }
 
@@ -204,13 +209,13 @@ select:-webkit-autofill:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--color-border-hover);
+    background-color: var(--border);
     border-radius: 4px;
     cursor: auto;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--color-accent);
+    background-color: var(--primary);
     cursor: auto;
 }
 
@@ -219,34 +224,39 @@ select:-webkit-autofill:focus {
 }
 
 /* Typography */
-
 @utility big-heading {
-    @apply text-foreground font-heading text-[32px] font-bold;
+    @apply text-foreground font-mono text-[32px] font-bold;
 }
+
 @utility heading {
-    @apply text-foreground font-heading text-[24px] font-semibold;
+    @apply text-foreground font-mono text-[24px] font-semibold;
 }
+
 @utility sub-heading {
-    @apply text-foreground font-heading text-[20px] font-medium;
+    @apply text-foreground font-mono text-[20px] font-medium;
 }
+
 @utility paragraph {
-    @apply text-foreground font-content text-[16px] font-normal;
+    @apply text-foreground font-mono text-[16px] font-normal;
 }
+
 @utility label {
     @apply text-foreground text-sm font-medium;
 }
+
 @utility label-muted {
-    @apply text-text-muted text-sm font-normal;
+    @apply text-muted-foreground text-sm font-normal;
 }
+
 @utility small {
-    @apply text-foreground font-content text-[14px] font-normal;
+    @apply text-foreground font-mono text-[14px] font-normal;
 }
+
 @utility active-focus {
     @apply ring-primary border-transparent ring-[2px] transition-all outline-none;
 }
 
 /* Layout */
-
 @utility absolute-center {
     @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
@@ -269,24 +279,24 @@ select:-webkit-autofill:focus {
 
 /* Styles used in components/Calendar */
 .day {
-    --border-color: var(--color-border-subtle);
-    --in-range-bg: var(--color-secondary-hover);
-    --border-radius: 4px;
+    --border-color: var(--border);
+    --in-range-bg: var(--secondary);
+    --border-radius: var(--radius);
 }
 
 .in-range {
-    color: white;
+    color: var(--secondary-foreground);
 }
 
 .range-start,
 .range-end {
-    background-color: var(--color-foreground);
-    color: var(--color-background);
+    background-color: var(--foreground);
+    color: var(--background);
 }
 
 .will-be-range-start,
 .will-be-range-end {
-    background-color: var(--color-primary);
+    background-color: var(--primary);
 }
 
 .in-range {
