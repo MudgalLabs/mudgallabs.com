@@ -41,6 +41,13 @@ const products: Product[] = [
             "Bodhveda is a notification platform for sending direct or broadcast notifications at scale, while respecting each user’s preferences.",
         website: "https://bodhveda.com",
     },
+    {
+        name: "NiftyMood",
+        logo: "/nifty-mood.png",
+        description:
+            "NiftyMood is India’s trader sentiment board. Find out what Indian traders expect from the next trading session.",
+        website: "https://niftymood.in",
+    },
 ];
 
 export default function ProductsShowcase() {
