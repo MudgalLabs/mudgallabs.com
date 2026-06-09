@@ -17,7 +17,7 @@ const products: Product[] = [
         name: "Arthveda",
         logo: "/arthveda.svg",
         description:
-            "Arthveda is a trading journal that shows why you're losing money and how to fix it. Works with Zerodha, Groww, Angel One and more.",
+            "Trading OS for India. Discover stocks, manage watchlists, journal trades, and improve your performance from a single workspace.",
         website: "https://arthveda.app",
     },
     {
